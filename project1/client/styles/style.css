@@ -1,0 +1,167 @@
+body {
+  scroll-behavior: smooth;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.flex_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.red_box, .red_box2 {
+  margin: 0;
+  padding: 0;
+  color: grey;
+  background: red;
+}
+
+.red_box:hover, .red_box2:hover {
+  background: green;
+}
+
+.red_box::after, .red_box2::after {
+  content: "hey";
+}
+
+a {
+  cursor: pointer;
+}
+
+.box, .red_box2 {
+  margin: 50px;
+  height: 500px;
+  width: 500px;
+}
+
+.twoColors {
+  height: 400px;
+  width: 600px;
+  background: -webkit-gradient(linear, left top, right top, from(gray), color-stop(50%, gray), color-stop(50%, yellow));
+  background: linear-gradient(to right, gray, gray 50%, yellow 50%);
+}
+
+.twoColors h1 {
+  margin: auto;
+  width: 30%;
+}
+
+.slideShowBox {
+  position: relative;
+  height: 400px;
+  width: 600px;
+}
+
+.slideShowBox img {
+  height: 400px;
+  width: 600px;
+}
+
+.left {
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+
+.right {
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+
+.container {
+  position: relative;
+  background: lightblue;
+  width: 400px;
+  height: 300px;
+}
+
+.container a {
+  margin: 5px;
+  padding: 5px;
+  background-color: red;
+  color: white;
+}
+
+.mySlide {
+  display: none;
+  position: relative;
+}
+
+.mySlide img {
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+
+.numbertext {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.dot {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: gray;
+}
+
+.dotActive {
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+}
+
+.opened {
+  display: block;
+}
+
+.closed {
+  display: none;
+}
+
+.main {
+  height: 200px;
+  width: 300px;
+  margin: auto;
+  background-color: aqua;
+  background-size: cover;
+  text-align: center;
+  line-height: 200px;
+  border: 2px solid black;
+}
+
+.subcontainer {
+  height: 400px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sub {
+  width: 200px;
+  border: 2px solid black;
+}
+
+.sub img {
+  width: 100%;
+}
+/*# sourceMappingURL=style.css.map */

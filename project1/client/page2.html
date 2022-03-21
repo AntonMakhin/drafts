@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="scripts/script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="scripts/my_jquery.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <a href="index.html">index</a>
+  <a href="page2.html">page2</a>
+  <a href="page3.html">page3</a>
+  <hr>
+  <div class="container">
+    <div class="mySlide">
+      <div class="numbertext"></div>
+      <img src="images/1.jpg" alt="ковровский завод жби">
+    </div>
+  
+    <div class="mySlide">
+      <div class="numbertext"></div>
+      <img src="images/2.jpg" alt="ковровский завод жби">
+    </div>
+  
+    <div class="mySlide">
+      <div class="numbertext"></div>
+      <img src="images/3.jpg" alt="ковровский завод жби">
+    </div>
+              
+    <a class="prev left" onclick="changeSlide(-1)">&#10094;</a>
+    <a class="next right" onclick="changeSlide(1)">&#10095;</a>
+    <br>
+    <div style="text-align:center; ">
+     <span class="dot" onclick="changeSlide(0, 0)"></span>
+     <span class="dot" onclick="changeSlide(0, 1)"></span>
+     <span class="dot" onclick="changeSlide(0, 2)"></span>
+    </div>
+  </div>
+  <hr>
+  <div>
+    <button type="button" onclick="openMe()">Open</button>
+    <button type="button" onclick="closeMe()">Close</button>    
+  </div>
+  <p id="demo" onclick="showID(this)">Lorem ipsum dolor sit amet, consectetur 
+    adipisicing elit. Excepturi nostrum nobis reiciendis magnam, 
+    enim asperiores dolores minus sint id magni earum. Rerum consectetur aut tenetur.
+     Ex error repellendus dolores asperiores.
+  </p>
+  <hr>
+  <button onclick="addFruit()">add fruit</button>
+  <button onclick="removeFruit()">remove fruit</button>
+  <p id="p"></p>
+  <script>
+    let index = 0;
+    let slides = document.getElementsByClassName('mySlide');
+    let dots = document.getElementsByClassName('dot');
+
+    showSlide(); 
+    function showSlide() {
+      let slideNumber = document.getElementsByClassName('numbertext');
+      if (index >= 0 && index < slides.length) {
+        slides[index].style.display = 'block';
+        dots[index].className += ' dotActive';
+        slideNumber[index].innerHTML = `${index + 1} / ${slideNumber.length}`
+      } else if (index < 0) {
+        index = slides.length - 1;
+        showSlide();
+      } else {
+        index = 0;
+        showSlide();
+      }
+    }
+
+    function changeSlide(step, n) {
+      slides[index].style.display = 'none';
+      dots[index].className = 'dot';
+      index = (step)? index + step: n;
+      showSlide();
+    }
+
+    
+    let fruits = [];
+    function addFruit() {
+      let newFruit = prompt('what is your favourite fruit?', '');
+      fruits.push(newFruit);
+      console.log(fruits);
+      document.getElementById('p').innerHTML = fruits;
+    }
+
+    function removeFruit() {
+      fruits.pop()
+      document.getElementById('p').innerHTML = fruits;
+    }
+
+    function showImg(elem) {
+      let display = document.getElementById('display');
+      let src = elem.src;
+      let alt = elem.alt;
+      display.style.backgroundImage = `url(${src})`;
+      display.innerHTML = alt;
+    }
+
+    function unshowImg() {
+      display.style.backgroundImage = "none";
+      display.innerHTML = 'display';
+    }
+  </script>  
+</body>
+</html>

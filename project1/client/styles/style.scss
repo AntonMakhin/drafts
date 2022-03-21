@@ -1,0 +1,84 @@
+@import 'varibles';
+
+
+
+@mixin flexMix($direction, $justify-content, $align-items) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+body {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+
+.flex_container {
+  @include flexMix(row, center, center)
+}
+
+.red_box {
+  margin: 0;
+  padding: 0;
+  color: $textColor;
+  background: red;
+  &:hover {
+    background: green;
+  }
+  &::after {
+    content: "hey";
+  }
+}
+
+.red_box2 {
+  @extend .red_box;
+  @extend .box;
+}
+
+a {
+  cursor: pointer;
+}
+
+.box {
+  margin: 50px;
+  height: 500px;
+  width: 500px;
+}
+
+.twoColors {
+  height: 400px;
+  width: 600px;
+  background: linear-gradient(to right, gray, gray 50%, yellow 50%);
+}
+
+.twoColors h1 {
+  margin: auto;
+  width: 30%;
+}
+
+.slideShowBox {
+  position: relative;
+  height: 400px;
+  width: 600px;
+}
+
+.slideShowBox img {
+  height: 400px;
+  width: 600px;
+}
+
+.left {
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+
+.right {
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+
+@import 'page2style';

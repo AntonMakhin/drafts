@@ -1,0 +1,75 @@
+.container {
+  position: relative;
+  background: lightblue;
+  width: 400px;
+  height: 300px;
+  a {
+    margin: 5px;
+    padding: 5px;
+    background-color: red;
+    color: white;  
+  }
+}
+
+.mySlide {
+  display: none;
+  position: relative;
+  img {
+    width: 100%;
+    display: block;
+    margin: auto;
+  }
+}
+
+.numbertext {
+position: absolute;
+left: 0;
+top: 0;
+}
+
+.dot {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: gray;
+}
+
+.dotActive {
+  transform: scale(1.2, 1.2);
+}
+
+.opened {
+  display: block;
+}
+
+.closed {
+  display: none;
+}
+
+.main {
+  height: 200px;
+  width: 300px;
+  margin: auto;
+  background-color: aqua;
+  background-size: cover;
+  text-align: center;
+  line-height: 200px;
+  border: 2px solid black;
+}
+
+.subcontainer {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.sub {
+  width: 200px;
+  border: 2px solid black;
+  img {
+    width: 100%;
+  }
+}
