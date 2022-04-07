@@ -1,0 +1,60 @@
+//install git
+
+//create repo locally
+
+//create files
+
+//initialise repo
+git init
+git config --global uder.name '...'
+git config --global user.email '...'
+
+//checking out git
+git status
+
+//adding files to git
+git add <file name>
+git add --all
+git add .
+
+//unstaging files
+git rm --cashed <file>
+
+
+//commiting
+git commit
+commit message
+:wq
+
+git commit -m '...'
+
+//create gitignore
+touch .gitignore
+
+//creating a branch
+git branch <name>
+
+//switching to a branch
+git checkout <name>
+
+//merging a branch to the master
+git merge <name>
+
+//checking out for remote 
+git remote
+
+//adding remote
+git remote add origin <repo address>
+
+//pushing to a branch
+git push -u origin <branch name>
+
+//cloning remote
+git clone <address>
+
+//pulling from remote
+git pull
+
+
+
+
