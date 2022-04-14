@@ -13,93 +13,10 @@
     <p id="cardsEl">Cards: </p>
     <p id="sumEl">Sum: </p>
     <button id="myBtn" onclick="startGame()">START GAME</button>
-    <button id="newCardBtn" onclick="newCard()">NEW CARD</button>    
+    <button id="newCardBtn" onclick="newCard()">NEW CARD</button>
+    <p id="player-el" ></p>    
   </div>
 
-  <script>
-    function updateUI() {
-      let body = document.querySelector('body');
-      body.style.background = 'green';
-      body.style.color = 'white';
-      body.style.fontSize = '35px';
-      body.style.textAlign = 'center'
-
-      let h1 = document.querySelector('h1');
-      h1.style.color = 'goldenrod';
-
-
-      let div = document.querySelector('div');
-      div.style.marginTop = '50px';
-
-      var message = document.getElementById('message');
-      message.style.fontStyle = 'italic';
-
-      let myBtn = document.getElementById('myBtn');
-      myBtn.style.color = '#016f32';
-      myBtn.style.background = 'goldenrod';
-      myBtn.style.width = '250px';
-      myBtn.style.height = '50px';
-      myBtn.style.borderRadius = '5px';
-      myBtn.style.border = 'none';
-      myBtn.style.fontSize = '25px';
-      myBtn.style.fontWeight = 'bold';
-      myBtn.style.marginBottom = '2px'
-
-      let newCardBtn = document.getElementById('newCardBtn');
-      newCardBtn.style.color = '#016f32';
-      newCardBtn.style.background = 'goldenrod';
-      newCardBtn.style.width = '250px';
-      newCardBtn.style.height = '50px';
-      newCardBtn.style.borderRadius = '5px';
-      newCardBtn.style.border = 'none';
-      newCardBtn.style.fontSize = '25px';
-      newCardBtn.style.fontWeight = 'bold';
-
-    }
-
-    updateUI();
-
-    let firstCard = 6;
-    let secondCard = 9;
-    let cards = [firstCard, secondCard];
-    let sum = firstCard + secondCard;
-    let cardsEl = document.getElementById('cardsEl');
-
-    function startGame() {
-      renderGame();
-    }
-
-    function renderGame() {
-      let hasBlackJack = false;
-      let isAlive = true;
-      let sumEl = document.getElementById('sumEl');
-
-      if (sum < 21) {
-        message.innerHTML = 'A new card?';
-      } else if (sum === 21) {
-        message.innerHTML = 'Black jack!';
-        hasBlackJack = true;
-      } else {
-        message.innerHTML = 'You are out!';
-        isAlive = false;
-      }
-
-      sumEl.innerHTML = 'Sum: ' + sum;
-
-      cardsEl.innerHTML = 'Cards: ' + cards.join(' - ');
-
-    }
-
-    let newRender;
-
-    function newCard() {
-      let card = 5;
-      sum += card;
-      cards.push(card);
-      renderGame();
-    }
-
-
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
