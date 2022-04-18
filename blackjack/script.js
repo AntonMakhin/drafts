@@ -1,22 +1,22 @@
-let messageEl = document.getElementById('message');
+const messageEl = document.getElementById('message');
 
 function updateUI() {
-  let body = document.querySelector('body');
+  const body = document.querySelector('body');
   body.style.background = 'green';
   body.style.color = 'white';
   body.style.fontSize = '35px';
   body.style.textAlign = 'center'
 
-  let h1 = document.querySelector('h1');
+  const h1 = document.querySelector('h1');
   h1.style.color = 'goldenrod';
 
 
-  let div = document.querySelector('div');
+  const div = document.querySelector('div');
   div.style.marginTop = '50px';
 
   messageEl.style.fontStyle = 'italic';
 
-  let myBtn = document.getElementById('myBtn');
+  const myBtn = document.getElementById('myBtn');
   myBtn.style.color = '#016f32';
   myBtn.style.background = 'goldenrod';
   myBtn.style.width = '250px';
@@ -27,7 +27,7 @@ function updateUI() {
   myBtn.style.fontWeight = 'bold';
   myBtn.style.marginBottom = '2px'
 
-  let newCardBtn = document.getElementById('newCardBtn');
+  const newCardBtn = document.getElementById('newCardBtn');
   newCardBtn.style.color = '#016f32';
   newCardBtn.style.background = 'goldenrod';
   newCardBtn.style.width = '250px';
@@ -42,7 +42,7 @@ function updateUI() {
 updateUI();
 
 let cards;
-let cardsEl = document.getElementById('cardsEl');
+const cardsEl = document.getElementById('cardsEl');
 let isAlive;
 let hasBlackJack;
 
@@ -51,7 +51,7 @@ let player = {
   chips: 0
 }
 
-let playerEl = document.getElementById('player-el');
+const playerEl = document.getElementById('player-el');
 
 
 function getRandomCard() {
@@ -80,7 +80,7 @@ function startGame() {
 }
 
 function renderGame() {
-  let sumEl = document.getElementById('sumEl');
+  const sumEl = document.getElementById('sumEl');
   let sum = 0;
 
   for (let i = 0; i < cards.length; i++) {
@@ -106,7 +106,6 @@ function renderGame() {
 
 }
 
-let newRender;
 
 function newCard() {
   if (isAlive && !hasBlackJack) {
