@@ -41,18 +41,22 @@
 
     updateUI();
 
-
-    inputBtn.addEventListener('click', function () {
-      leads.push(inputEl.value);
-      inputEl.value = '';
-      console.log(leads);
-      ulEl.innerHTML = '';
+    function renderLeads() {
+      let listItems = '';
       for (let i = 0; i < leads.length; i++) {
-        ulEl.innerHTML += '<li>' + leads[i] + '</li>';
+        listItems += `<li><a href='${leads[i]}' target ='_blank'>${leads[i]}</a></li>`;
         /* let li = document.createElement('li');
         li.innerHTML = leads[i];
         ulEl.append(li); */
       }
+      ulEl.innerHTML = listItems;
+    }
+
+
+    inputBtn.addEventListener('click', function () {
+      leads.push(inputEl.value);
+      inputEl.value = '';
+      renderLeads();
     });
   </script>
 </body>
