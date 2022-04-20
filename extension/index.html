@@ -37,6 +37,11 @@
       inputBtn.style.width = '150px';
       inputBtn.style.border = 'none';
       inputBtn.style.fontSize = '20px';
+
+      ulEl.style.listStyle = 'none';
+      ulEl.style.paddingLeft = '0';
+      ulEl.style.marginTop = '20px';
+
     }
 
     updateUI();
@@ -50,6 +55,14 @@
         ulEl.append(li); */
       }
       ulEl.innerHTML = listItems;
+      let lists = document.getElementsByTagName('li');
+      for (let i = 0; i < lists.length; i++) {
+        lists[i].style.marginTop = '5px';
+      }
+      let anchors = document.getElementsByTagName('a');
+      for (let i = 0; i < anchors.length; i++) {
+        anchors[i].style.color = 'green';
+      }
     }
 
 
