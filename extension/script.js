@@ -1,8 +1,11 @@
+
 const body = document.querySelector('body');
 const inputEl = document.getElementById('input-el');
 const inputBtn = document.getElementById('input-btn');
 const ulEl = document.getElementById('ulEl');
 let leads = [];
+let leadsFromLocalStorage = JSON.parse(localStorage.getItem('leads'));
+
 
 function updateUI() {
   body.style.margin = 0;
@@ -33,6 +36,11 @@ function updateUI() {
 
 updateUI();
 
+if (leadsFromLocalStorage) {
+  leads = leadsFromLocalStorage;
+  renderLeads();
+}
+
 function renderLeads() {
   let listItems = '';
   for (let i = 0; i < leads.length; i++) {
@@ -56,5 +64,8 @@ function renderLeads() {
 inputBtn.addEventListener('click', function () {
   leads.push(inputEl.value);
   inputEl.value = '';
+  localStorage.setItem('leads', JSON.stringify(leads));
   renderLeads();
 });
+
+
