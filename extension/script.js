@@ -1,10 +1,10 @@
-
+let myLeads = [];
 const body = document.querySelector('body');
 const inputEl = document.getElementById('input-el');
 const inputBtn = document.getElementById('input-btn');
+const deleteBtn = document.getElementById('delete-btn');
 const ulEl = document.getElementById('ulEl');
-let leads = [];
-let leadsFromLocalStorage = JSON.parse(localStorage.getItem('leads'));
+const myLeadsFromLocalStorage = JSON.parse(localStorage.getItem('myLeads'));
 
 
 function updateUI() {
@@ -28,6 +28,14 @@ function updateUI() {
   inputBtn.style.border = 'none';
   inputBtn.style.fontSize = '20px';
 
+  deleteBtn.style.color = 'green';
+  deleteBtn.style.marginTop = '10px';
+  deleteBtn.style.borderRadius = '5px';
+  deleteBtn.style.height = '50px';
+  deleteBtn.style.width = '150px';
+  deleteBtn.style.border = '1px solid green';
+  deleteBtn.style.fontSize = '20px';
+
   ulEl.style.listStyle = 'none';
   ulEl.style.paddingLeft = '0';
   ulEl.style.marginTop = '20px';
@@ -36,12 +44,12 @@ function updateUI() {
 
 updateUI();
 
-if (leadsFromLocalStorage) {
-  leads = leadsFromLocalStorage;
-  renderLeads();
+if (myLeadsFromLocalStorage) {
+  myLeads = myLeadsFromLocalStorage;
+  render(myLeads);
 }
 
-function renderLeads() {
+function render(leads) {
   let listItems = '';
   for (let i = 0; i < leads.length; i++) {
     listItems += `<li><a href='${leads[i]}' target ='_blank'>${leads[i]}</a></li>`;
@@ -62,10 +70,16 @@ function renderLeads() {
 
 
 inputBtn.addEventListener('click', function () {
-  leads.push(inputEl.value);
+  myLeads.push(inputEl.value);
   inputEl.value = '';
-  localStorage.setItem('leads', JSON.stringify(leads));
-  renderLeads();
+  localStorage.setItem('myLeads', JSON.stringify(myLeads));
+  render(myLeads);
+});
+
+deleteBtn.addEventListener('dblclick', function () {
+  localStorage.clear();
+  myLeads = [];
+  render(myLeads);
 });
 
 
