@@ -2,9 +2,11 @@ let myLeads = [];
 const body = document.querySelector('body');
 const inputEl = document.getElementById('input-el');
 const inputBtn = document.getElementById('input-btn');
+const tabBtn = document.getElementById('tab-btn');
 const deleteBtn = document.getElementById('delete-btn');
 const ulEl = document.getElementById('ulEl');
 const myLeadsFromLocalStorage = JSON.parse(localStorage.getItem('myLeads'));
+const tabs = [];
 
 
 function updateUI() {
@@ -27,6 +29,15 @@ function updateUI() {
   inputBtn.style.width = '150px';
   inputBtn.style.border = 'none';
   inputBtn.style.fontSize = '20px';
+
+  tabBtn.style.background = 'green';
+  tabBtn.style.color = 'white';
+  tabBtn.style.marginTop = '10px';
+  tabBtn.style.borderRadius = '5px';
+  tabBtn.style.height = '50px';
+  tabBtn.style.width = '150px';
+  tabBtn.style.border = 'none';
+  tabBtn.style.fontSize = '20px';
 
   deleteBtn.style.color = 'green';
   deleteBtn.style.marginTop = '10px';
@@ -76,7 +87,13 @@ inputBtn.addEventListener('click', function () {
   render(myLeads);
 });
 
-deleteBtn.addEventListener('dblclick', function () {
+tabBtn.addEventListener('click', function () {
+  myLeads.push(tabs[0].url);
+  localStorage.setItem('myLeads', JSON.stringify(myLeads));
+  render(myLeads);
+})
+
+deleteBtn.addEventListener('click', function () {
   localStorage.clear();
   myLeads = [];
   render(myLeads);
