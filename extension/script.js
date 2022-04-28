@@ -6,8 +6,6 @@ const tabBtn = document.getElementById('tab-btn');
 const deleteBtn = document.getElementById('delete-btn');
 const ulEl = document.getElementById('ulEl');
 const myLeadsFromLocalStorage = JSON.parse(localStorage.getItem('myLeads'));
-const tabs = [];
-
 
 function updateUI() {
   body.style.margin = 0;
@@ -50,7 +48,6 @@ function updateUI() {
   ulEl.style.listStyle = 'none';
   ulEl.style.paddingLeft = '0';
   ulEl.style.marginTop = '20px';
-
 }
 
 updateUI();
@@ -79,7 +76,6 @@ function render(leads) {
   }
 }
 
-
 inputBtn.addEventListener('click', function () {
   myLeads.push(inputEl.value);
   inputEl.value = '';
@@ -88,9 +84,11 @@ inputBtn.addEventListener('click', function () {
 });
 
 tabBtn.addEventListener('click', function () {
-  myLeads.push(tabs[0].url);
-  localStorage.setItem('myLeads', JSON.stringify(myLeads));
-  render(myLeads);
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    myLeads.push(tabs[0].url);
+    localStorage.setItem('myLeads', JSON.stringify(myLeads));
+    render(myLeads);
+    })
 })
 
 deleteBtn.addEventListener('click', function () {
@@ -98,5 +96,4 @@ deleteBtn.addEventListener('click', function () {
   myLeads = [];
   render(myLeads);
 });
-
 
