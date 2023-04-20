@@ -8,6 +8,5 @@ console.log(elapsedTime);
 
 console.log(bob.getDate());
 console.log(bob.getTime());
-
-
+ 
 
